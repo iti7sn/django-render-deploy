@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<link rel="stylesheet" href="{% static 'CSS/insert.css' %}" />
+<h1>Insert Trainee</h1>
+
+<form method="post" enctype="multipart/form-data">
+  <!-- ده بتاع الحمايه  -->
+  {% csrf_token %}
+  <label for="trname"> Name: </label>
+  <input type="text" id="trname" name="trname" required />
+  <br /><br />
+  <label for="tremail"> Email:</label>
+  <input type="email" id="tremail" name="tremail" required />
+  <br /><br />
+  <select name="trtrack" id="trtrack">
+    {% for track in tracks%}
+    <option value="{{track.id}}">{{track.name}}</option>
+    {%endfor%}
+  </select>
+  <br /><br />
+  <label for="trphoto">Upload Image:</label>
+  <input type="file" id="trphoto" name="trphoto" />
+  <br /><br />
+  <button>Submit</button>
+</form>
+{% endblock %}
+<!--  -->
+{% block title%}Insert Trainee{% endblock %}

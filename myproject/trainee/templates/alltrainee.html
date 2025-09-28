@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% load static %} {%block content%}
+<h1>All Trainees</h1>
+<a href="{% url 'inserttrainee' %}" class="btn-insert">Insert New Trainee</a>
+<table width="100%" border="1">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Track</th>
+    <th>Image</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  {% for train in trainee%}
+
+  <!-- عدم اظهار المتدربين الغير نشطين  {%  if train.status %} --><!-- قفل {% endif %} -->
+  <tr>
+    <td>{{train.id}}</td>
+    <td>{{train.name}}</td>
+    <td>{{train.email}}</td>
+    <td>{{train.trackid.name}}</td>
+    <td>
+      {% if train.photo%}
+      <img
+        src="{{train.photo.url}}"
+        alt="{{train.photo}}"
+        style="max-width: 150px; max-height: 150px; object-fit: cover"
+      />
+      {% else%}No photo{% endif %}
+    </td>
+    <td>{% if train.status %}Active{%else%}Inactive{%endif%}</td>
+    <td>
+      <a href="{% url 'updatetrainee' train.id %}">Update Trainee</a>
+      <br />
+      <a href="{% url 'deletetrainee' train.id %}">Delete Trainee</a>
+      <br />
+            <a href="{% url 'Inactive' train.id %}">
+        {% if train.status %}Inactive{% else %}active{% endif %}
+      </a>
+    </td>
+    </td>
+  </tr>
+
+  <!--  -->
+  {% endfor %}
+</table>
+{% endblock%}
+{% block title%}ِAll Trainee{% endblock %}

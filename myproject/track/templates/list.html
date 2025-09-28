@@ -1,0 +1,31 @@
+{% extends 'base.html'%} {% block content %}
+<h1>All Tracks</h1>
+<a href="{% url 'inserttrack' %}" class="btn-insert">Insert New Track</a>
+<table width="100%" border="1">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  {% for track in tracks%}
+  <tr>
+    <td>{{track.id}}</td>
+    <td>{{track.name}}</td>
+    <td>{% if track.status %} Active {% else %} Inactive {% endif %}</td>
+    <td>
+      <a href="{% url 'updatetrack' track.id %}">update</a>
+      <br />
+      <a href="{% url 'deletetrack' track.id %}">delete</a>
+      <br />
+      <a href="{% url 'InactiveTrack' track.id %}">
+        {% if track.status %}Inactive{% else %}active{% endif %}
+      </a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}
+<!--  -->
+{% block title%}All Tracks{% endblock %}

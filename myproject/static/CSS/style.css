@@ -1,0 +1,157 @@
+/* ===== Reset & Basics ===== */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #fdfdfd;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+h1 ,h5 {
+  text-align: center;
+  color: #b73232; /* أحمر */
+  margin: 20px 0;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* ===== Header ===== */
+.heder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 12px 25px;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 20px;
+}
+
+.heder img {
+  height: 50px;
+}
+
+/* ===== Header Links as Buttons ===== */
+.heder span a {
+  margin-left: 15px;
+  padding: 8px 16px;
+  background: #b73232;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 2px solid #b73232;
+}
+
+.heder span a:hover {
+  background: #fff;
+  color: #b73232;
+}
+
+.Home{
+  color: #2c0000; /* أحمر */
+  margin: 20px ;
+  
+}
+
+/* ===== Insert Button ===== */
+.btn-insert {
+  display: inline-block;
+  margin: 0px 0px 0px 33px;
+  padding: 5px 5px;
+  background: #b73232; /* أحمر */
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 2px solid #b73232;
+  text-align: center;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.btn-insert:hover {
+  background: #fff;
+  color: #b73232;
+}
+
+/* ===== Table Styling ===== */
+table {
+  width: 95%;
+  margin: auto;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(183, 50, 50, 0.322);
+}
+
+table th,
+table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #f0d7d7;
+}
+table td{
+  padding: 2px 5px;
+}
+
+table th {
+  background: #b73232;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+table tr:nth-child(even) {
+  background: #fff5f5;
+}
+
+table tr:hover {
+  background: #fdeaea;
+}
+
+/* ===== Image Styling ===== */
+table img {
+  max-width: 120px;
+  max-height: 120px;
+  object-fit: cover;
+  border-radius: 100px;
+  border: 2px solid #f0d7d7;
+}
+
+/* ===== Status Styling ===== */
+.status-active {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.status-inactive {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* ===== Action Links ===== */
+td a {
+  display: inline-block;
+  margin: 4px 2px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  background: #b73232;
+  color: #fff !important;
+  font-size: 14px;
+  border: 2px solid #b73232;
+}
+
+td a:hover {
+  background: #fff;
+  color: #b73232 !important;
+}
+
+
+/* ===== Responsive Design ===== */
+@media (max-width: 600px) {
+  table {
+    width: 100%;
+  }
+}

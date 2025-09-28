@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<link rel="stylesheet" href="{% static 'CSS/insert.css' %}" />
+<h1>Update Trainee {{ track.id }}</h1>
+
+<form method="post" enctype="multipart/form-data">
+  <!-- ده بتاع الحمايه  -->
+  {% csrf_token %}
+  <label for="trackname"> Name Track: </label>
+  <input
+    type="text"
+    id="trackname"
+    name="trackname"
+    required
+    value="{{ track.name }}"
+  />
+  <br /><br />
+  <button>Submit</button>
+</form>
+{% endblock %}
+<!--  -->
+{% block title%}Update Track{% endblock %}
