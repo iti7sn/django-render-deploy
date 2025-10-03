@@ -28,13 +28,12 @@ SECRET_KEY = os.environ.get(
     "DJANGO_SECRET_KEY",
     "django-insecure-gkz5v1s97wza(p(4y=)1bxbcsunoa$_2df3yei=1o5!p#z_ka=",
 )  
-# 👆 لو في Render هنستخدم متغير البيئة DJANGO_SECRET_KEY 
-# ولو محلي هيفضل نفس الكي اللي Django أنشأه تلقائيًا
+
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False") == "True"  
-# 👆 خلتها تعتمد على متغير البيئة، 
+
 # يعني محلي تقدر تعمل DEBUG=True، 
 # وفي Render تخليه False
 
@@ -56,11 +55,12 @@ INSTALLED_APPS = [
     'myuser.apps.MyuserConfig',
     'trainee.apps.TraineeConfig',
     'track.apps.TrackConfig',
+    'instructor.apps.InstructorConfig',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # ✅ مهم علشان Render يقدر يخدم static files
+    'whitenoise.middleware.WhiteNoiseMiddleware',  
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -98,7 +98,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-# 👆 الإعدادات دي خاصة بالشغل المحلي باستخدام pgAdmin
+
 
 
 # Override database if DATABASE_URL exists (Render/Postgres cloud)
@@ -107,8 +107,7 @@ if DATABASE_URL:
     DATABASES["default"] = dj_database_url.parse(
         DATABASE_URL, conn_max_age=600, ssl_require=True
     )
-# 👆 لو شغال على Render أو أي استضافة بتديك DATABASE_URL 
-# الكود ده هيبدل الإعدادات بتاعت المحلي ويستخدم القاعدة أونلاين
+
 
 
 # Password validation
@@ -149,7 +148,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']   # للملفات وأنت شغال محلي
 STATIC_ROOT = BASE_DIR / 'staticfiles'     # 👈 لما تعمل collectstatic في Render كل الملفات هتتحط هنا
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"  
-# 👆 علشان Whitenoise يخزن الملفات المضغوطة ويضمن كاش فعّال
+
 
 
 # Default primary key field type

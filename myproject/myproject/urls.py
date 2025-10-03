@@ -25,5 +25,6 @@ urlpatterns = [
     path('',include('myuser.urls')),
     path('Tracks/',include('track.urls')),
     path('Trainees/',include('trainee.urls')),
+    path('Instructors/',include('instructor.urls')),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

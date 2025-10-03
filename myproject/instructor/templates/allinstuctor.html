@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% load static %} {%block content%}
+<h1>All Instructors</h1>
+<a href="{% url 'insertinstructor' %}" class="btn-insert">Insert New Instructor</a>
+<table width="100%" border="1">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Track</th>
+    <th>Image</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  {% for inst in instructor%}
+
+  <tr>
+    <td>{{inst.id}}</td>
+    <td>{{inst.name}}</td>
+    <td>{{inst.email}}</td>
+    <td>{{inst.trackid.name}}</td>
+    <td>
+      {% if inst.photo%}
+      <img
+        src="{{inst.photo.url}}"
+        alt="{{inst.photo}}"
+        style="max-width: 150px; max-height: 150px; object-fit: cover"
+      />
+      {% else%}No photo{% endif %}
+    </td>
+    <td>{% if inst.status %}Active{%else%}Inactive{%endif%}</td>
+    <td>
+      <a href="{% url 'updateinstructor' inst.id %}">Update Instructor</a>
+      <br />
+      <a href="{% url 'deleteinstructor' inst.id %}">Delete Instructor</a>
+      <br />
+            <a href="{% url 'Inactiveinstructor' inst.id %}">
+        {% if inst.status %}Inactive{% else %}active{% endif %}
+      </a>
+    </td>
+    </td>
+  </tr>
+
+  <!--  -->
+  {% endfor %}
+</table>
+{% endblock%}
+{% block title%}ِAll Instructor{% endblock %}
